@@ -36,10 +36,12 @@ You can create random generators from the Rant class. Rant.gen is just returns a
 h2. Getting Random Data Values
 
 <pre><code>
-Rant#map(n,limit=10)
-  call the generator n times, and collect values
 Rant#each(n,limit=10)
   call a random block n times
+Rant#map(n,limit=10)
+  call the generator n times, and collect values
+Rant#inject and other Enumerable methods
+  ditto
 Rant#value(limit=10)
   call a random block once, and get its value.
 </code></pre>

@@ -20,7 +20,8 @@ class Rant
   end
 
   class TooManyTries < RuntimeError
-    
+    include Enumerable
+
     def initialize(limit,nfailed)
       @limit = limit
       @nfailed = nfailed
@@ -38,14 +39,6 @@ class Rant
   # limit attempts to 10 times of how many things we want to generate
   def each(n,limit=10,&block)
     generate(n,limit,block)
-  end
-
-  def map(n,limit=10,&block)
-    acc = []
-    generate(n,limit,block) do |val|
-      acc << val
-    end
-    acc
   end
 
   def value(limit=10,&block)
